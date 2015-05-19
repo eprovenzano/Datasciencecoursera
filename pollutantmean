@@ -1,0 +1,36 @@
+pollutantmean <- function(directory, pollutant, id = 1:332) {
+avg <- vector(mode="numeric", length=0)
+
+for (n in id) 
+	
+{
+
+if (n <= 9) 
+	{
+	file <- paste('00',n,sep='')
+	}
+			if (n > 9 & n < 99) {
+		file <- paste('0',n,sep='')
+					 }
+		else {
+			if (n > 99) {
+			file <-n
+					 }
+			}
+
+filedata <- read.csv(paste(directory,"/",file,".csv",sep=''),header=TRUE, sep=",")
+
+
+if (pollutant == "sulfate"){
+ncol <- 2
+}
+else {
+ncol <-3
+}
+
+avg <- c(avg,na.omit(filedata[,ncol]))
+
+}
+return(mean(avg))
+rm(list = ls())
+}
