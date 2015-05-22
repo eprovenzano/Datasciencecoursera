@@ -24,7 +24,7 @@ cacheSolve <- function(matrixtest, ...) {
     mat
 }
 
-Test run:
+##Test run:
  x = rbind(c(2, -1/6), c(-1/6, 1))
  r = makeCacheMatrix(x)
 r
